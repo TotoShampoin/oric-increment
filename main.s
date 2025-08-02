@@ -48,7 +48,6 @@ loop
 	DEY
 	PLA
 	AND #%11110000
-	CLC
 	LSR
 	LSR
 	LSR
