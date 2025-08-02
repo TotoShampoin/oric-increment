@@ -8,7 +8,6 @@ counter				.dsb 4
 	.text
 
 _main
-	SED
 	LDA #0
 	STA counter
 	STA counter+1
@@ -74,13 +73,14 @@ get
 ; Expects a number between 0-15 in the accumulator
 ; Returns the equivalent 0-9/A-F character in the accumulator
 to_hex
-	SEC
-	SBC #$0A
-	BPL case_10
-	CLC
-	ADC #$0A+"0"
-	RTS
-case_10
-	CLC
-	ADC #"A"
-	RTS
+    CMP #$0A
+    BCC case_09
+    SEC
+    SBC #$0A
+    CLC
+    ADC #"A"
+    RTS
+case_09
+    CLC
+    ADC #"0"
+    RTS
