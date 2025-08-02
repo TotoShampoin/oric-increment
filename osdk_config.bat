@@ -1,0 +1,10 @@
+@ECHO OFF
+
+::
+:: Set the build paremeters
+::
+SET OSDKADDR=$8000
+SET OSDKNAME=INCREM
+SET OSDKLINK=-B
+SET OSDKHEAD=-S1
+SET OSDKFILE=main 
